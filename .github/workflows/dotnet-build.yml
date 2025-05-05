@@ -1,0 +1,17 @@
+name: Executar workflow em push e agendado a cada hora
+
+on:
+  push:  # Executa em push
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Rodar script
+        run: echo "Executando workflow..."
